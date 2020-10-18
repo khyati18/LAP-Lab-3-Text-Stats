@@ -24,7 +24,7 @@ def open1():
     global f1_content
     filename = filedialog.askopenfilename(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
     if filename:
-        f1_content = filename.read()
+        f1_content = filename
         input()
 
 def open2():
