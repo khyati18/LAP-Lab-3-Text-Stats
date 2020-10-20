@@ -2,6 +2,7 @@
 import string
 import io
 import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords 
 
 # Function to find all stats of the input file
@@ -46,33 +47,41 @@ def stats_of_file(content):
 
 #	print(words)
 
-	# #for stop words
-	# stop_words = set(stopwords.words('english')) 
-	# filtered_sentence = [w for w in words if not w in stop_words] 
+	#for stop words
+	stop_words = set(stopwords.words('english')) 
+	filtered_sentence = [w for w in words if not w in stop_words] 
 
-	# filtered_sentence = [] 
+	filtered_sentence = [] 
 
-	# for w in words: 
-	# 	if w not in stop_words: 
-	# 		filtered_sentence.append(w)
-	# print(filtered_sentence) 
+	for w in words: 
+		if w not in stop_words: 
+			filtered_sentence.append(w)
+	
+	stop_words_count=words_count-len(filtered_sentence)
 
+	stats+="No of stop words: "+str(stop_words_count)+"\n"
+	stats+="No of words after removing stop words: "+str(len(filtered_sentence))+"\n"
+
+	
+	#for frequency of each word
+	d=dict()
+
+	for word in filtered_sentence:
+		if word in d:
+			d[word]=d[word]+1
+		else:
+			d[word]=1
+
+	# #test
+	# for key in list(d.keys()): 
+	# 	print(key, ":", d[key]) 
 
 
 	#2. histogram for various words
 	# make seperate python script for it
 
 
-	#3. no. of stop-words in content
-
-	#4. for removing stop-words from content
-
-	#5. least frequently occuring word
-
-	#6. max. occuring word after removing stop words
-
 	return stats
-
 
 
 
