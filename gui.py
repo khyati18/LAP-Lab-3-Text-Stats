@@ -28,7 +28,7 @@ def input():
 	l.config(font =("Courier", 14)) 
 
 	# Stats
-	T = Text(root, height = 5, width = 52) 
+	T = Text(root, height = 9, width = 80) 
 	T.insert(END, Stats)
 
 	l.pack()
@@ -42,16 +42,14 @@ def input():
 	which contains words for keyword file.
 """
 def keyword():
-
     pass
 
 def open1():
     global f1_content
     filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
     if filename:
-    	f1_content = ""
-    	for i in filename:
-    		f1_content += i
+    	f1_content = filename.read()
+    	print(f1_content)
     	input()
 
 def open2():

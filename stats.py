@@ -11,41 +11,58 @@ def stats_of_file(content):
 	# initializing stats as a string
 	stats = ""
 
-	lines_count,sentences,blank_lines,words_count=0,0,0,0
+	lines_count,blank_lines,words_count=0,0,0
 
 	words=[] #for storing all the words
 
-	for line in content:
+	flag = 0
 
-		lines_count+=1		#for counting no. of lines
+	line_of_content = ""
 
-		if(line.startswith('\n')):
-			blank_lines+=1		#for blank lines
+	for letter in content:
 
-		else:
+		if(letter=='\n' and flag==0):
 
-			#assume that each sentence ends with . or ! or ?
-			sentences+=line.count('.')+line.count('!')+line.count('?')
-
-			# Remove the leading spaces and newline character 
-			line=line.strip()
-
-		    # Remove the punctuation marks from the line 
-			line = line.translate(line.maketrans("", "", string.punctuation)) 
+			# Remove the punctuation marks from the line 
+			line_of_content = line_of_content.translate(line_of_content.maketrans("", "", string.punctuation)) 
 
 			# Split the line into words 
-			temp_words = line.split(" ") 	
+			temp_words = line_of_content.split(" ") 	
 
 			words.extend(temp_words)
 
 			words_count+=len(temp_words)
 
+			lines_count+=1					# for counting no. of lines
+			flag = 1						# if last letter of line
+
+			line_of_content = ""
+
+		elif(letter=='\n' and flag==1):
+			blank_lines+=1					#for blank lines
+			lines_count+=1					# for counting no. of lines
+
+		else:
+			flag = 0						# if not last letter of line
+			line_of_content += letter
+
+	if(line_of_content!=""):
+		# Remove the punctuation marks from the line 
+		line_of_content = line_of_content.translate(line_of_content.maketrans("", "", string.punctuation)) 
+
+		# Split the line into words 
+		temp_words = line_of_content.split(" ") 	
+
+		words.extend(temp_words)
+
+		words_count+=len(temp_words)
+
+		lines_count+=1					# for counting no. of lines
+
 	stats+="No of lines: "+str(lines_count)+"\n"
 	stats+="No of blank lines: "+str(blank_lines)+"\n"
-	stats+="No of sentences: "+str(sentences)+"\n"
+	stats+="No of sentences: "+str(lines_count-blank_lines)+"\n"
 	stats+="No of words: "+str(words_count)+"\n"
-
-#	print(words)
 
 	#for stop words
 	stop_words = set(stopwords.words('english')) 
@@ -62,8 +79,11 @@ def stats_of_file(content):
 	stats+="No of stop words: "+str(stop_words_count)+"\n"
 	stats+="No of words after removing stop words: "+str(len(filtered_sentence))+"\n"
 
+	stats+="\nTo refresh and add new/another file click on input button again\n"
+
 	
-	#for frequency of each word
+	# for frequency of each word
+	# use this for histogram
 	d=dict()
 
 	for word in filtered_sentence:
@@ -71,15 +91,6 @@ def stats_of_file(content):
 			d[word]=d[word]+1
 		else:
 			d[word]=1
-
-	# #test
-	# for key in list(d.keys()): 
-	# 	print(key, ":", d[key]) 
-
-
-	#2. histogram for various words
-	# make seperate python script for it
-
 
 	return stats
 

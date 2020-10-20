@@ -1,7 +1,9 @@
 # Rough_LAP
 Current tech used:
 
-- Tkinter - use python3
+- Tkinter 
+- NLTK
+- Python3
 
 Features supported:
 
