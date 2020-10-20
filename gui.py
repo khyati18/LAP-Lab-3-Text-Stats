@@ -8,11 +8,17 @@ root.title('File Picker')
 f1_content = ''
 f2_content = ''
 
+stats_widgets = []
+
 """
 	The function will return statistics
 	of the input file.
 """
 def input():
+
+	# destroy old stats_widgets
+	for i in stats_widgets:
+		i.destroy()
 	
 	# Displaying Stats of input file
 	Stats = S.stats_of_file(f1_content)
@@ -27,6 +33,9 @@ def input():
 
 	l.pack()
 	T.pack()
+	# add these widgets to 'stats_widgets'
+	stats_widgets.append(l)
+	stats_widgets.append(T)
 
 """
 	The function will return lines from input file
