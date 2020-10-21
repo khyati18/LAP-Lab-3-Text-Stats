@@ -78,7 +78,7 @@ def keyword():
 
 def open1():
 	global f1_content, f1
-	filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
+	filename = filedialog.askopenfile(initialdir="./testfiles", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
 	if filename:
 		f1 = filename
 		
