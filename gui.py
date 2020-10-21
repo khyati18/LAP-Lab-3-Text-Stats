@@ -1,12 +1,15 @@
 from tkinter import *
 from tkinter import filedialog
 import stats as S
+import keywords as K
 
 root = Tk()
 root.geometry("800x600")
 root.title('File Picker')
 f1_content = ''
 f2_content = ''
+global f1
+global f2
 
 stats_widgets = []
 
@@ -42,22 +45,25 @@ def input():
 	which contains words for keyword file.
 """
 def keyword():
-    pass
+	K.get_input_lines(f1.name, f2.name)
+
 
 def open1():
-    global f1_content
-    filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
-    if filename:
-    	f1_content = filename.read()
-    	print(f1_content)
-    	input()
+	global f1_content, f1
+	filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
+	if filename:
+		f1 = filename
+		f1_content = filename.read()
+		input()
+
 
 def open2():
-    global f2_content
-    filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
-    if filename:
-    	f2_content = filename
-    	keyword()
+	global f2
+	filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
+	if filename:
+		f2 = filename
+		keyword()
+
 
 # Opening input file button
 my_btn1 = Button(root, text="Open input file", command=open1, width=20, height=2).place(x=300, y=400)
