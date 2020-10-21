@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 import stats as S
 import keywords as K
+import hist 
 
 root = Tk()
 root.geometry("800x600")
@@ -25,6 +26,8 @@ def input():
 	
 	# Displaying Stats of input file
 	Stats = S.stats_of_file(f1_content)
+
+	
 
 	# Heading
 	l = Label(root, text = "Stats") 
@@ -53,6 +56,10 @@ def open1():
 	filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
 	if filename:
 		f1 = filename
+		
+		#displaying histogram
+		hist.main(f1.name)
+		
 		f1_content = filename.read()
 		input()
 
