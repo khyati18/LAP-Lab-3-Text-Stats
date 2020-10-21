@@ -79,6 +79,5 @@ def stats_of_file(content):
 	stats+="No of stop words: "+str(stop_words_count)+"\n"
 	stats+="No of words after removing stop words: "+str(len(filtered_sentence))+"\n"
 
-	stats+="\nTo refresh and add new/another file click on input button again\n"
 
 	return stats
