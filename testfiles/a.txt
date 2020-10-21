@@ -1,2 +1,0 @@
-This is a sample input file
-Use this for testing input

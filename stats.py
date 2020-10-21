@@ -81,19 +81,4 @@ def stats_of_file(content):
 
 	stats+="\nTo refresh and add new/another file click on input button again\n"
 
-	
-	# for frequency of each word
-	# use this for histogram
-	d=dict()
-
-	for word in filtered_sentence:
-		if word in d:
-			d[word]=d[word]+1
-		else:
-			d[word]=1
-
 	return stats
-
-
-
-

@@ -1,0 +1,14 @@
+This is a sample input file
+Use this for testing input
+
+Once upon a time, a farmer had a goose that laid a golden egg every day. 
+The egg provided enough money for the farmer and his wife for their day-to-day needs. 
+The farmer and his wife were happy for a long time. 
+But one day, the farmer got an idea and thought, “Why should I take just one egg a day? 
+Why can’t I take all of them at once and make a lot of money?”
+
+The foolish farmer’s wife also agreed and decided to cut the goose’s stomach for the eggs. 
+As soon as they killed the bird and opened the goose’s stomach, to find nothing but guts and blood. 
+The farmer, realizing his foolish mistake, cries over the lost resource!
+
+Think before you act.

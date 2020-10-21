@@ -12,6 +12,7 @@ global f1
 global f2
 
 stats_widgets = []
+stats_widgets_k = []
 
 """
 	The function will return statistics
@@ -30,23 +31,47 @@ def input():
 	l = Label(root, text = "Stats") 
 	l.config(font =("Courier", 14)) 
 
+	l_h = Label(root, text = "Histogram") 
+	l_h.config(font =("Courier", 14)) 
+
 	# Stats
 	T = Text(root, height = 9, width = 80) 
 	T.insert(END, Stats)
 
 	l.pack()
 	T.pack()
+	l_h.pack()
 	# add these widgets to 'stats_widgets'
 	stats_widgets.append(l)
 	stats_widgets.append(T)
+	stats_widgets.append(l_h)
 
 """
 	The function will return lines from input file
 	which contains words for keyword file.
 """
 def keyword():
-	K.get_input_lines(f1.name, f2.name)
+	for i in stats_widgets_k:
+		i.destroy()
 
+	input_lines = K.get_input_lines(f1.name, f2.name)
+
+	# Heading
+	l_k = Label(root, text = "Sentences with keywords") 
+	l_k.config(font =("Courier", 14)) 
+
+	# Lines
+	T_k = Text(root, height = 5, width = 80) 
+	T_k.insert(END, input_lines)
+
+	l_k.pack()
+	T_k.pack()
+	
+	# add these widgets to 'stats_widgets_k'
+	stats_widgets_k.append(l_k)
+	stats_widgets_k.append(T_k)
+	stats_widgets.append(l_k)
+	stats_widgets.append(T_k)
 
 def open1():
 	global f1_content, f1
