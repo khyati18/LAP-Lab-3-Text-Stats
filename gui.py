@@ -101,6 +101,12 @@ def open2():
 # Opening input file button
 my_btn1 = Button(root, text="Open input file", command=open1, width=20, height=2).place(x=300, y=400)
 
+#for message
+msg='For refresh, click again on the OPEN INPUT FILE button and select the required file'
+messageVar = Message(root, text = msg, relief = RAISED, width = 1000) 
+messageVar.config(bg='white') 
+messageVar.pack( ) 
+
 # Opening keyword file button
 my_btn2 = Button(root, text="Open keyword file", command=open2, width=20, height=2).place(x=300, y=500)
 
