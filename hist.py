@@ -64,15 +64,6 @@ def main(content):
     words_sorted_top = words_sorted[0:top_n]
     values_sorted_top = values_sorted[0:top_n]
     
-    print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-    print("{0} unique words identified in the text file, {1}".format(len(values_sorted), filepath))
-    print("The top {0} words are: \n{1}".format(top_n, words_sorted_top))
-    print("... their respective frequencies: \n{0}".format(values_sorted_top))
-    print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-    # Pandas DataFrame just for visualisation
-    df = pd.DataFrame({'count': values_sorted_top, 'word': words_sorted_top})
-    print("{0}".format(df))
-    sys.stdout.flush()
     
     # Histogram
     

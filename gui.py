@@ -82,11 +82,12 @@ def open1():
 	if filename:
 		f1 = filename
 		
-		#displaying histogram
-		hist.main(f1.name)
+		
 		
 		f1_content = filename.read()
 		input()
+		#displaying histogram
+		hist.main(f1.name)
 
 
 def open2():
