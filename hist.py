@@ -16,7 +16,9 @@ import matplotlib.pyplot as plt
 
 from collections import Counter
 
-
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
     
 def main(content):
     
@@ -48,12 +50,22 @@ def main(content):
     # Remove punctuation and new lines
     punct = set(string.punctuation)
     unpunct_content = ''.join(x for x in content_concat if x not in punct)
+
     
     # Split string into list of strings, again
     word_list = unpunct_content.split()
+
+    filtered_sentence = []
+    #for stop words
+    stop_words = set(stopwords.words('english'))
+    for w in word_list:
+        if w not in stop_words:
+            filtered_sentence.append(w)
+    
+			
     
     # Perform count
-    counts_all = Counter(word_list)
+    counts_all = Counter(filtered_sentence)
     
     words, count_values = zip(*counts_all.items())
     
@@ -82,7 +94,6 @@ def main(content):
     plt.xticks(indices + width * 0.5, xtlabs, rotation='vertical', fontsize=8)
     plt.show()
     
-if __name__ == '__main__':
-    main()
+
     
 # End
