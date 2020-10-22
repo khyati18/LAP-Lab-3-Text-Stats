@@ -15,6 +15,11 @@ global f2
 stats_widgets = []
 stats_widgets_k = []
 
+# for displaying histogram
+def plot_histogram():
+	hist.main(f1.name)
+
+
 """
 	The function will return statistics
 	of the input file.
@@ -34,8 +39,7 @@ def input():
 	l = Label(root, text = "Stats") 
 	l.config(font =("Courier", 14)) 
 
-	l_h = Label(root, text = "Histogram") 
-	l_h.config(font =("Courier", 14)) 
+	hist_btn = Button(root, text="Plot Histogram", command=plot_histogram, width=18, height=2).place(x=300, y=400)
 
 	# Stats
 	T = Text(root, height = 9, width = 80) 
@@ -43,11 +47,9 @@ def input():
 
 	l.pack()
 	T.pack()
-	l_h.pack()
 	# add these widgets to 'stats_widgets'
 	stats_widgets.append(l)
 	stats_widgets.append(T)
-	stats_widgets.append(l_h)
 
 """
 	The function will return lines from input file
@@ -80,15 +82,9 @@ def open1():
 	global f1_content, f1
 	filename = filedialog.askopenfile(initialdir="./testfiles", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
 	if filename:
-		f1 = filename
-		
-		
-		
+		f1 = filename		
 		f1_content = filename.read()
 		input()
-		#displaying histogram
-		hist.main(f1.name)
-
 
 def open2():
 	global f2
@@ -99,7 +95,7 @@ def open2():
 
 
 # Opening input file button
-my_btn1 = Button(root, text="Open input file", command=open1, width=20, height=2).place(x=300, y=400)
+my_btn1 = Button(root, text="Open input file", command=open1, width=18, height=2).place(x=300, y=450)
 
 #for message
 msg='For refresh, click again on the OPEN INPUT FILE button and select the required file'
@@ -108,6 +104,6 @@ messageVar.config(bg='white')
 messageVar.pack( ) 
 
 # Opening keyword file button
-my_btn2 = Button(root, text="Open keyword file", command=open2, width=20, height=2).place(x=300, y=500)
+my_btn2 = Button(root, text="Open keyword file", command=open2, width=18, height=2).place(x=300, y=500)
 
 root.mainloop()
