@@ -42,14 +42,19 @@ def input():
 	hist_btn = Button(root, text="Plot Histogram", command=plot_histogram, width=18, height=2).place(x=300, y=400)
 
 	# Stats
-	T = Text(root, height = 9, width = 80) 
+	T = Text(root, height = 6, width = 80) 
 	T.insert(END, Stats)
 
-	l.pack()
-	T.pack()
+	# Refresh
+	ref = Button(root, text="Refresh", command=refresh)
+
+	l.place(x=350, y=20)
+	T.place(x=100, y=40)
+	ref.place(x=350, y=150)
 	# add these widgets to 'stats_widgets'
 	stats_widgets.append(l)
 	stats_widgets.append(T)
+	stats_widgets.append(ref)
 
 """
 	The function will return lines from input file
@@ -69,14 +74,12 @@ def keyword():
 	T_k = Text(root, height = 5, width = 80) 
 	T_k.insert(END, input_lines)
 
-	l_k.pack()
-	T_k.pack()
+	l_k.place(x=250, y=250)
+	T_k.place(x=100, y=280)
 	
 	# add these widgets to 'stats_widgets_k'
 	stats_widgets_k.append(l_k)
 	stats_widgets_k.append(T_k)
-	stats_widgets.append(l_k)
-	stats_widgets.append(T_k)
 
 def open1():
 	global f1_content, f1
@@ -88,20 +91,20 @@ def open1():
 
 def open2():
 	global f2
-	filename = filedialog.askopenfile(initialdir="./", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
+	filename = filedialog.askopenfile(initialdir="./testfiles", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
 	if filename:
 		f2 = filename
 		keyword()
 
+def refresh():
+	global f1_content
+	f = open(f1.name, "r")
+	f1_content = f.read()
+	input()
+	if(f2): keyword()
 
 # Opening input file button
 my_btn1 = Button(root, text="Open input file", command=open1, width=18, height=2).place(x=300, y=450)
-
-#for message
-msg='For refresh, click again on the OPEN INPUT FILE button and select the required file'
-messageVar = Message(root, text = msg, relief = RAISED, width = 1000) 
-messageVar.config(bg='white') 
-messageVar.pack( ) 
 
 # Opening keyword file button
 my_btn2 = Button(root, text="Open keyword file", command=open2, width=18, height=2).place(x=300, y=500)
