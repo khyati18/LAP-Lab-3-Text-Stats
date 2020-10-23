@@ -42,15 +42,15 @@ def input():
 	hist_btn = Button(root, text="Plot Histogram", command=plot_histogram, width=18, height=2).place(x=300, y=400)
 
 	# Stats
-	T = Text(root, height = 6, width = 80) 
+	T = Text(root, height = 8, width = 80) 
 	T.insert(END, Stats)
 
 	# Refresh
 	ref = Button(root, text="Refresh", command=refresh)
 
-	l.place(x=350, y=20)
+	l.place(x=350, y=10)
 	T.place(x=100, y=40)
-	ref.place(x=350, y=150)
+	ref.place(x=350, y=200)
 	# add these widgets to 'stats_widgets'
 	stats_widgets.append(l)
 	stats_widgets.append(T)

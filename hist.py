@@ -90,7 +90,7 @@ def main(content):
     fig.suptitle('Word frequency histogram, top {0}'.format(top_n), fontsize=16)
     plt.xlabel('word', fontsize=12)
     plt.ylabel('count', fontsize=12)
-    plt.bar(indices, values_sorted_top, width)
+    plt.bar(indices, values_sorted_top, width=0.5 , align='center')
     plt.xticks(indices + width * 0.5, xtlabs, rotation='vertical', fontsize=8)
     plt.show()
     
