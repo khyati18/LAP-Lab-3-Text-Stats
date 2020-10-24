@@ -50,7 +50,7 @@ def stats_of_file(content):
 		# Remove the punctuation marks from the line 
 		line_of_content = line_of_content.translate(line_of_content.maketrans("", "", string.punctuation)) 
 
-	#	line_of_content=line_of_content.strip()
+		#line_of_content=line_of_content.strip()
 		
 		# Split the line into words 
 		temp_words = line_of_content.split(" ") 	
@@ -82,23 +82,20 @@ def stats_of_file(content):
 	stats+="No of stop words: "+str(stop_words_count)+"\n"
 	stats+="No of words after removing stop words: "+str(len(filtered_sentence))+"\n"
 
-
-	
 	# high_freq = statistics.mode(filtered_sentence) 	
 	# low_freq = min(set(filtered_sentence), key = filtered_sentence.count) 
 
-	freq=Counter(filtered_sentence)
+	freq = Counter(filtered_sentence)
 
-	arr=[pair[0] for pair in sorted(freq.items(), key=lambda item: item[1])]
+	# array sorted with increasing frequency of words
+	arr = [pair[0] for pair in sorted(freq.items(), key=lambda item: item[1])]
 
-	#print(arr)
-	low_freq=arr[0]
-	high_freq=arr[len(freq)-1]
+	# print(arr)
+	low_freq = arr[0]
+	high_freq = arr[len(freq)-1]
 
 
 	stats+="Word with highest frequency: "+str(high_freq)+"\n"
 	stats+="Word with lowest frequency: "+str(low_freq)
-
-
 
 	return stats

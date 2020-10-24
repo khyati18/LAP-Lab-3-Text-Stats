@@ -1,3 +1,4 @@
+# importing libraries
 from tkinter import *
 from tkinter import filedialog
 import stats as S
@@ -6,11 +7,11 @@ import hist
 
 root = Tk()
 root.geometry("800x600")
-root.title('File Picker')
+root.title('Text-Stats Application')
 f1_content = ''
 f2_content = ''
-global f1
-global f2
+f1 = ""
+f2 = ""
 
 stats_widgets = []
 stats_widgets_k = []
@@ -32,8 +33,6 @@ def input():
 	
 	# Displaying Stats of input file
 	Stats = S.stats_of_file(f1_content)
-
-	
 
 	# Heading
 	l = Label(root, text = "Stats") 
@@ -81,6 +80,7 @@ def keyword():
 	stats_widgets_k.append(l_k)
 	stats_widgets_k.append(T_k)
 
+# Function to open input file
 def open1():
 	global f1_content, f1
 	filename = filedialog.askopenfile(initialdir="./testfiles", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
@@ -89,6 +89,7 @@ def open1():
 		f1_content = filename.read()
 		input()
 
+# Function to open keyword file
 def open2():
 	global f2
 	filename = filedialog.askopenfile(initialdir="./testfiles", title="Select a file", filetypes=(("txt", "*.txt"), ("all", "*.*")))
@@ -96,12 +97,15 @@ def open2():
 		f2 = filename
 		keyword()
 
+# Function to refresh stats when file gets updated 
 def refresh():
 	global f1_content
 	f = open(f1.name, "r")
 	f1_content = f.read()
 	input()
-	if(f2): keyword()
+	global f2
+	if(f2):
+		keyword()
 
 # Opening input file button
 my_btn1 = Button(root, text="Open input file", command=open1, width=18, height=2).place(x=300, y=450)

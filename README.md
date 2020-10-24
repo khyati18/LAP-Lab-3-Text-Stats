@@ -1,19 +1,27 @@
-# LAP Lab 3 Text Stats
+# LAP Lab 3 Text-Stats Application
 
-Current tech used:
+**Technology Used**
 
 - Tkinter 
 - NLTK
 - Python3
 
-How to run:
+**How to run**
 
-- pip3 install -r requirements.txt
-- python3 gui.py
+`pip3 install -r requirements.txt`
 
-Features supported:
+`python3 gui.py`
 
-- Choose input file
-- Statistics with Histogram will be shown
+**Features supported**
+
+- Choose input text file
+- Statistical Analysis of file will be shown
+- Filters stop-words for better analysis
+- Plot Histogram of word frequency in input file
 - Choose keyword file 
-- Displays lines containing keywords from input
+- Displays lines containing keywords from input text file
+
+## Documentation
+
+* [Check Requirements ](./documentation/REQUIREMENTS.md)
+* [Design of application ](./documentation/DESIGN.md)

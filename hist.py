@@ -32,7 +32,7 @@ def main(content):
     
     # Load the file
     filepath = os.path.normpath(os.path.join(rawfilepath))
-    print(filepath)
+    # print(filepath)
     file = open(filepath, 'r')
     
     # Parse as a list, removing lines
