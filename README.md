@@ -1,27 +1,41 @@
 # LAP Lab 3 Text-Stats Application
 
-**Technology Used**
+This is a GUI based application that takes a text file as input. Users can view statistics of the input file and a frequency plot. Users can also find sentences from the file containing certain keywords. The GUI is being built using Tkinter Python3 library. 
 
-- Tkinter 
-- NLTK
-- Python3
+**Technology Used** - Python3, [Tkinter](https://docs.python.org/3/library/tkinter.html), [NLTK](https://www.nltk.org/)
 
-**How to run**
+## Local Setup Guide
 
-`pip3 install -r requirements.txt`
-
-`python3 gui.py`
-
-**Features supported**
-
-- Choose input text file
-- Statistical Analysis of file will be shown
-- Filters stop-words for better analysis
-- Plot Histogram of word frequency in input file
-- Choose keyword file 
-- Displays lines containing keywords from input text file
+1. Install Tkinter
+```
+sudo apt-get install python3-tk
+```
+2. Clone this repository
+```
+git clone https://github.com/khyati18/LAP-Lab-3-Text-Stats
+```
+3. Go inside the main directory and install requirements 
+```
+cd LAP-Lab-3-Text-Stats
+pip3 install -r requirements.txt
+```
+4. Run application
+```
+python3 gui.py
+```
 
 ## Documentation
 
-* [Check Requirements ](./documentation/REQUIREMENTS.md)
-* [Design of application ](./documentation/DESIGN.md)
+Refer to [wiki](https://github.com/khyati18/LAP-Lab-3-Text-Stats/wiki) page for further details.
+
+## Contributors
+
+Member A - Khyati Agarwal (B18064)
+
+Member B - Jai Luthra (B18061)
+
+Member C - Nidhi Jain (B18124)
+
+Member D - Anjali Deep (B18158)
+
+Member E - Aman Maheshwari (B18003)
